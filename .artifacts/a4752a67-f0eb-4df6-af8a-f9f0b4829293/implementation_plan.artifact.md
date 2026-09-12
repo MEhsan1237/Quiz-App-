@@ -1,31 +1,30 @@
-# Implementation Plan - UI Refinements & Navigation Fix
+# Implementation Plan - Project Cleanup
 
-Update the application to have a "pro" fixed AppBar on the Home screen, center titles for Quiz and History screens, and fix the "Try Another Quiz" navigation flow.
+Remove all unused images, assets, and dependencies to keep the project clean, efficient, and production-ready.
+
+## User Review Required
+
+> [!IMPORTANT]
+> The `images/` directory and its contents will be permanently removed as they are not referenced in the application code.
+
+> [!NOTE]
+> The `pubspec.yaml` will be updated to remove unused asset declarations and unused dependencies (`url_launcher`, `shimmer`, `package_info_plus`).
 
 ## Proposed Changes
 
-### Logic (MVVM)
-- **[MODIFY]** [quiz_controller.dart](file:///C:/Quiz-App-/lib/app/modules/quiz/controllers/quiz_controller.dart):
-    - In `finishQuiz()`, pass the entire `category` Map to the Result screen instead of just the name.
-- **[MODIFY]** [result_controller.dart](file:///C:/Quiz-App-/lib/app/modules/result/controllers/result_controller.dart):
-    - Change `category` type to `dynamic` (to handle the Map).
-    - Update `onInit` to correctly extract the category Map.
-    - Update `_saveResult` to use the category name for persistence.
+### Assets & Files
+- **[DELETE]** [images/](file:///C:/Quiz-App-/images/): Entire directory containing unused `.jpg` files.
 
-### UI (Views)
-- **[MODIFY]** [categories_tab.dart](file:///C:/Quiz-App-/lib/app/modules/home/views/tabs/categories_tab.dart):
-    - Set `centerTitle: true` for the AppBar.
-- **[MODIFY]** [history_tab.dart](file:///C:/Quiz-App-/lib/app/modules/home/views/tabs/history_tab.dart):
-    - Ensure `centerTitle: true` (it already is, but verifying).
-- **[MODIFY]** [result_view.dart](file:///C:/Quiz-App-/lib/app/modules/result/views/result_view.dart):
-    - Update "Try Another Quiz" button to navigate to `AppRoutes.difficulty` with the stored `category` Map.
-    - Display the category name correctly using `controller.category['name']`.
-- **[MODIFY]** [dashboard_tab.dart](file:///C:/Quiz-App-/lib/app/modules/home/views/tabs/dashboard_tab.dart):
-    - Ensure the fixed AppBar looks professional with the user greeting and profile avatar.
+### Configuration
+- **[MODIFY]** [pubspec.yaml](file:///C:/Quiz-App-/pubspec.yaml):
+    - Remove the `assets:` section.
+    - Remove unused dependencies: `url_launcher`, `shimmer`, and `package_info_plus`.
 
 ## Verification Plan
 
+### Automated Tests
+- Run `flutter pub get` to ensure the updated `pubspec.yaml` is valid.
+- Run `flutter analyze` to ensure no code relies on the removed dependencies or assets.
+
 ### Manual Verification
-- **Navigation**: Complete a quiz, click "Try Another Quiz" on the result screen, and verify it takes you back to the Easy/Medium/Hard selection for the same category.
-- **UI Alignment**: Verify that AppBar titles on Quiz, Categories, and History screens are centered.
-- **Home UI**: Verify the Dashboard AppBar remains fixed at the top while scrolling the content.
+- Verify the app still builds and runs correctly on the emulator/web.

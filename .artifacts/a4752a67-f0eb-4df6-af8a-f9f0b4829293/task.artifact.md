@@ -1,5 +1,4 @@
-- `[x]` Add fixed colored AppBar to `dashboard_tab.dart`
-- `[x]` Center titles in `quiz_view.dart`, `history_tab.dart`, and `categories_tab.dart`
-- `[x]` Pass category Map from `QuizController` to `ResultController`
-- `[x]` Update `ResultView` "Try Another Quiz" navigation to `DifficultyView`
-- `[x]` Final verification of UI layout and navigation flow
+- `[x]` Remove unused `images/` directory and contents
+- `[x]` Remove unused assets from `pubspec.yaml`
+- `[x]` Remove unused dependencies from `pubspec.yaml`
+- `[x]` Run `flutter pub get` and verify build
