@@ -1,32 +1,29 @@
-# Walkthrough - UI Refinements & Visibility Fixes
+# Walkthrough - UI Polish & Navigation Enhancement
 
-The application has received several UI refinements to improve consistency, visibility, and professional look across all device themes.
+The application UI has been further refined with a "pro" fixed AppBar on the Home screen and centered titles across all main modules. Additionally, the quiz retry flow has been optimized for a better user experience.
 
 ## Key Changes
 
-### 🎨 Global Theming Enhancements
-- **Home Screen AppBars**: All home-related tabs (Categories, History, Profile) now feature the primary branded background in Light theme, matching the rest of the application.
-- **ListTile Borders**: In Light theme, ListTiles now have a subtle, professional border, improving item separation and clarity.
-- **Improved Contrast**: Updated the global `textTheme` to ensure `titleMedium` and other text elements have maximum contrast in both Light and Dark modes.
+### 🏠 Professional Home AppBar
+- **Fixed Header**: The `DashboardTab` now features a proper `Scaffold` `appBar` that remains fixed at the top while the content scrolls.
+- **Integrated Data**: User greetings and profile avatars are moved into the AppBar, giving the dashboard a clean and professional look.
+- **Primary Branding**: The AppBar uses `AppColors.primary` in Light theme to maintain consistent branding.
 
-### 🏛️ Navigation & Alignment
-- **Centered Titles**: The AppBar titles for the **Quiz Screen** and **Profile Screen** are now perfectly centered for a more focused, premium feel.
-- **Smart Alignment**: Main home tabs (Categories, History) maintain their left-aligned titles to preserve a modern dashboard layout.
+### 🎯 Navigation Optimization
+- **Smart Retry**: When clicking "Try Another Quiz" on the result screen, the app now navigates directly to the **Difficulty Selection screen** (Easy/Medium/Hard) for the *same* category you just played.
+- **Data Persistence**: The category information is now passed seamlessly from the Quiz module through the Result module and back to selection.
 
-### 🧠 Category Visibility Fix
-- **Dynamic Text Colors**: Fixed the visibility issue for "History", "Sports", "Science", and "Geography" in the Category tab. The text now dynamically adapts its color based on the current theme brightness, ensuring it's always readable against the card background.
-- **Dark Theme Consistency**: Verified that all icons and text remain perfectly visible and well-vibranted in Dark mode.
+### 🏛️ Title Alignment Refinement
+- **Centered Titles**: AppBar titles for **Quiz**, **Categories**, and **History** are now perfectly centered, matching the premium design of the Profile sub-screens.
 
 ## How to Verify
-1.  **Light Theme Check**:
-    *   Observe the `AppBar` in the Home screen tabs; they should now be colored.
-    *   Look at the ListTiles (e.g., in Quiz History or Profile); they should have subtle borders.
-    *   Verify the Category names are now clearly visible.
-2.  **Alignment Check**:
-    *   Go to the Quiz screen or Profile tab; the title should be centered.
-    *   Go to Categories or History tabs; the title should be left-aligned.
-3.  **Dark Theme Check**:
-    *   Switch to Dark mode and ensure all elements (icons, category text, list items) remain highly visible and accessible.
+1.  **Fixed AppBar**: On the Home dashboard, scroll down. The blue AppBar containing your name should stay fixed at the top.
+2.  **Retry Flow**:
+    *   Start a quiz from any category (e.g., Sports).
+    *   Complete the quiz.
+    *   On the result screen, click "Try Another Quiz".
+    *   Verify you are taken back to the "Easy, Medium, Hard" selection for Sports.
+3.  **Title Alignment**: Verify that titles on the Quiz, Categories, and History screens are centered.
 
 > [!TIP]
-> The `listTileTheme` was used to apply borders globally, ensuring that any future ListTiles added to the app will automatically follow this professional design.
+> This improved navigation flow reduces the number of taps required to start a new challenge, significantly enhancing the overall user experience.

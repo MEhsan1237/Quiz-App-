@@ -6,7 +6,7 @@ import '../../../services/storage_service.dart';
 class ResultController extends GetxController {
   final StorageService _storageService = Get.find<StorageService>();
 
-  late String category;
+  late dynamic category; // Can be Map or String
   late String difficulty;
   late int total;
   late int correct;
@@ -19,7 +19,7 @@ class ResultController extends GetxController {
     final dynamic args = Get.arguments;
     
     if (args != null && args is Map) {
-      category = args['category']?.toString() ?? 'General';
+      category = args['category'] ?? 'General';
       difficulty = args['difficulty']?.toString() ?? 'Medium';
       total = args['total'] ?? 0;
       correct = args['correct'] ?? 0;
@@ -39,9 +39,11 @@ class ResultController extends GetxController {
   }
 
   void _saveResult() {
+    final categoryName = category is Map ? category['name'] : category.toString();
+    
     final history = QuizHistoryModel(
       id: const Uuid().v4(),
-      category: category,
+      category: categoryName,
       difficulty: difficulty,
       totalQuestions: total,
       correctAnswers: correct,

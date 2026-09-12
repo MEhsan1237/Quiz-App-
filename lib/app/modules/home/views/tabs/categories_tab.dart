@@ -24,7 +24,7 @@ class CategoriesTab extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Categories'),
-        centerTitle: false,
+        centerTitle: true,
       ),
       body: GridView.builder(
         padding: const EdgeInsets.all(AppDimensions.paddingMedium),
@@ -65,9 +65,6 @@ class CategoriesTab extends StatelessWidget {
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Theme.of(context).brightness == Brightness.light
-                        ? AppColors.textPrimaryLight
-                        : AppColors.textPrimaryDark,
                   ),
             ),
           ],

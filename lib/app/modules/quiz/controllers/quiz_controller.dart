@@ -79,7 +79,7 @@ class QuizController extends GetxController {
 
   void finishQuiz() {
     Get.offNamed(AppRoutes.result, arguments: {
-      'category': category['name'],
+      'category': category,
       'difficulty': difficulty,
       'total': questions.length,
       'correct': correctAnswers.value,

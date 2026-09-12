@@ -34,7 +34,13 @@ class ResultView extends GetView<ResultController> {
                 ),
                 const SizedBox(height: 16),
                 OutlinedButton(
-                  onPressed: () => Get.offNamed(AppRoutes.category),
+                  onPressed: () {
+                    if (controller.category is Map) {
+                      Get.offNamed(AppRoutes.difficulty, arguments: controller.category);
+                    } else {
+                      Get.offNamed(AppRoutes.category);
+                    }
+                  },
                   style: OutlinedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 56),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
