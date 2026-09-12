@@ -1,0 +1,5 @@
+- `[x]` Add fixed colored AppBar to `dashboard_tab.dart`
+- `[x]` Move header data to Home AppBar and clean up body
+- `[x]` Center title in `history_tab.dart`
+- `[x]` Verify centered title in `quiz_view.dart`
+- `[x]` Final verification of UI layout and scroll behavior
